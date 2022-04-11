@@ -15,4 +15,6 @@
     <color name="blue">#293859</color>
     <color name="lightgrey">#EEEEEE</color>
     <color name="green">#24c223</color>
+    <color name="light_blue">#8ED1FC</color>
+    <color name="night_blue">#607ff2</color>
 </resources>
