@@ -10,36 +10,32 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
+
 import java.util.ArrayList;
 
-public class RouteLocationAdapter extends RecyclerView.Adapter<RouteLocationAdapter.ViewHolder> {
+public class RouteLocationAdapter extends FirebaseRecyclerAdapter<VendorRouteModel,RouteLocationAdapter.ViewHolder> {
     Context context;
-    ArrayList<VendorRouteModel> arrlocations;
-    RouteLocationAdapter(Context context, ArrayList<VendorRouteModel> arrlocations){
-        this.context = context;
-        this.arrlocations = arrlocations;
+    public RouteLocationAdapter(@NonNull FirebaseRecyclerOptions<VendorRouteModel> options) {
+        super(options);
     }
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(context).inflate(R.layout.route_templete, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.route_templete, parent, false);
         ViewHolder viewHolder = new ViewHolder(view);
         return viewHolder;
     }
 
-    @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.locationtext.setText(arrlocations.get(position).location);
-        holder.displaytimetxt.setText(arrlocations.get(position).time);
-
-
-    }
 
     @Override
-    public int getItemCount() {
-        return arrlocations.size();
+    protected void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull VendorRouteModel model) {
+        holder.locationtext.setText(model.location);
+        holder.displaytimetxt.setText(model.time);
     }
+
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView locationtext, displaytimetxt;

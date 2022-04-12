@@ -1,6 +1,7 @@
 package com.example.findvendor;
 
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,7 +16,12 @@ import android.widget.EditText;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -71,6 +77,26 @@ public class VendorRoute extends AppCompatActivity {
                         String location = addlocationtxt.getText().toString().trim();
                         //get time
 
+                        //c1
+                        VendorRouteModel vendorRouteModel = new VendorRouteModel(location,time);
+                        FirebaseDatabase.getInstance().getReference("users")
+                                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                .child("route").push().setValue(vendorRouteModel)
+                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void unused) {
+                                        Toast.makeText(getApplicationContext(),"inserted Successfully", Toast.LENGTH_LONG).show();
+                                        dialog.dismiss();
+                                    }
+                                })
+                                .addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Toast.makeText(getApplicationContext(),"could not inserted ", Toast.LENGTH_LONG).show();
+                                        dialog.dismiss();
+                                    }
+                                });
+
                         arrlocation.add(new VendorRouteModel(location, time));
                         adapter.notifyItemInserted(arrlocation.size()-1);
                         recyclerView.scrollToPosition(arrlocation.size()-1);
@@ -85,10 +111,26 @@ public class VendorRoute extends AppCompatActivity {
         });
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        adapter = new RouteLocationAdapter(this, arrlocation);
+        FirebaseRecyclerOptions<VendorRouteModel> options =
+                new FirebaseRecyclerOptions.Builder<VendorRouteModel>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference("users")
+                                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                .child("route"), VendorRouteModel.class)
+                        .build();
+        adapter = new RouteLocationAdapter(options);
 
         recyclerView.setAdapter(adapter);
+    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        adapter.startListening();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        adapter.stopListening();
     }
 
 
