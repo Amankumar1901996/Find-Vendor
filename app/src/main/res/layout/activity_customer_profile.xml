@@ -95,21 +95,12 @@
                                 android:id="@+id/p_fullnameTextview"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp"
+                                android:layout_marginTop="5dp"
                                 android:text="Aman Kumar"
                                 android:textAlignment="center"
                                 android:textColor="@color/maincolor"
                                 android:textSize="21sp"
                                 android:textStyle="bold" />
-
-                            <TextView
-                                android:id="@+id/designationTextview"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="Student"
-                                android:textAlignment="center"
-                                android:textColor="@color/secondmaincolor"
-                                android:textSize="14sp" />
 
 
                         </LinearLayout>
@@ -121,45 +112,6 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
                             android:paddingBottom="10dp">
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="2"
-                                android:gravity="center"
-                                android:padding="8dp">
-
-                                <ImageView
-                                    android:id="@+id/AuthenticTick"
-                                    android:layout_width="35dp"
-                                    android:layout_height="35dp"
-                                    android:background="@drawable/circulargreenfill"
-                                    android:padding="10dp"
-                                    android:src="@drawable/tickcircle" />
-
-                                <LinearLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="10dp"
-                                    android:orientation="vertical">
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="verified"
-                                        android:textColor="@color/maincolor"
-                                        android:textSize="12sp"
-                                        android:textStyle="bold" />
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="2dp"
-                                        android:text="1st year"
-                                        android:textColor="#FF0000"
-                                        android:textSize="12sp" />
-                                </LinearLayout>
-                            </LinearLayout>
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
@@ -226,6 +178,8 @@
                         android:orientation="vertical">
 
                         <!--About Me Card-->
+
+                        <!--Interest Details-->
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -244,31 +198,30 @@
 
                                     <Button
                                         android:id="@+id/createroutebtn"
-                                        android:layout_width="200dp"
+                                        android:layout_width="wrap_content"
                                         android:layout_height="40dp"
                                         android:background="@drawable/btnshape"
                                         android:drawableRight="@drawable/ic_baseline_arrow_drop_down_24"
                                         android:paddingRight="5dp"
-                                        android:text="Create Route"
+                                        android:text="Vendor Nearby"
                                         android:textAlignment="center"
                                         android:textColor="@color/white"
-                                        android:textSize="17dp">
-                                    </Button>
+                                        android:textSize="17dp"></Button>
 
                                     <Space
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_weight="1" />
 
-                                    <Button
+                                    <com.google.android.material.floatingactionbutton.FloatingActionButton
                                         android:id="@+id/addAboutMe"
                                         android:layout_width="30dp"
                                         android:layout_height="30dp"
-                                        android:paddingLeft="4dp"
                                         android:background="@drawable/roundbtn"
-                                        android:drawableStart="@drawable/ic_baseline_add_24">
+                                        android:drawableStart="@drawable/ic_baseline_add_24"
+                                        android:paddingLeft="4dp">
 
-                                    </Button>
+                                    </com.google.android.material.floatingactionbutton.FloatingActionButton>
                                 </LinearLayout>
 
                                 <LinearLayout
@@ -279,16 +232,17 @@
                                     android:padding="10dp">
 
                                     <LinearLayout
+                                        android:id="@+id/line"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:orientation="horizontal"
-                                        android:id="@+id/line">
+                                        android:orientation="horizontal">
+
                                         <TextView
                                             android:layout_width="match_parent"
                                             android:layout_height="match_parent"
                                             android:text="A1"
-                                            android:textColor="@color/green">
-                                        </TextView>
+                                            android:textColor="@color/green"></TextView>
+
                                         <Space
                                             android:layout_width="100dp"
                                             android:layout_height="wrap_content">
@@ -300,22 +254,24 @@
                                             android:layout_width="24dp"
                                             android:layout_height="25dp"
                                             android:background="@drawable/removebtn"
-                                            android:drawableStart="@drawable/ic_baseline_remove_circle_outline_24"
-                                            >
+                                            android:drawableStart="@drawable/ic_baseline_remove_circle_outline_24">
 
                                         </Button>
 
                                     </LinearLayout>
+
                                     <LinearLayout
+                                        android:id="@+id/line3"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:orientation="horizontal"
-                                        android:id="@+id/line3">
+                                        android:orientation="horizontal">
+
                                         <TextView
                                             android:layout_width="match_parent"
                                             android:layout_height="match_parent"
                                             android:text="A2"
                                             android:textColor="@color/green"></TextView>
+
                                         <Space
                                             android:layout_width="100dp"
                                             android:layout_height="wrap_content">
@@ -327,23 +283,24 @@
                                             android:layout_width="24dp"
                                             android:layout_height="25dp"
                                             android:background="@drawable/removebtn"
-                                            android:drawableStart="@drawable/ic_baseline_remove_circle_outline_24"
-                                            >
+                                            android:drawableStart="@drawable/ic_baseline_remove_circle_outline_24">
 
                                         </Button>
 
                                     </LinearLayout>
+
                                     <LinearLayout
+                                        android:id="@+id/line4"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:orientation="horizontal"
-                                        android:id="@+id/line4">
+                                        android:orientation="horizontal">
+
                                         <TextView
                                             android:layout_width="match_parent"
                                             android:layout_height="match_parent"
                                             android:text="A2"
-                                            android:textColor="@color/green">
-                                        </TextView>
+                                            android:textColor="@color/green"></TextView>
+
                                         <Space
                                             android:layout_width="100dp"
                                             android:layout_height="wrap_content">
@@ -355,8 +312,7 @@
                                             android:layout_width="24dp"
                                             android:layout_height="25dp"
                                             android:background="@drawable/removebtn"
-                                            android:drawableStart="@drawable/ic_baseline_remove_circle_outline_24"
-                                            ></Button>
+                                            android:drawableStart="@drawable/ic_baseline_remove_circle_outline_24"></Button>
 
                                     </LinearLayout>
 
@@ -366,7 +322,6 @@
 
                         </LinearLayout>
 
-                        <!--Interest Details-->
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -386,12 +341,12 @@
 
                                     <Button
                                         android:id="@+id/btn1"
-                                        android:layout_width="200dp"
+                                        android:layout_width="wrap_content"
                                         android:layout_height="40dp"
                                         android:background="@drawable/btnshape"
                                         android:drawableRight="@drawable/ic_baseline_arrow_drop_down_24"
                                         android:paddingRight="5dp"
-                                        android:text="Edit Cataloge"
+                                        android:text="Urgent Requirement"
                                         android:textAlignment="center"
                                         android:textColor="@color/white"
                                         android:textSize="17dp">
@@ -402,7 +357,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_weight="1" />
 
-                                    <Button
+                                    <com.google.android.material.floatingactionbutton.FloatingActionButton
                                         android:id="@+id/addInterests"
                                         android:layout_width="30dp"
                                         android:layout_height="30dp"
@@ -410,7 +365,7 @@
                                         android:background="@drawable/roundbtn"
                                         android:drawableStart="@drawable/ic_baseline_add_24">
 
-                                    </Button>
+                                    </com.google.android.material.floatingactionbutton.FloatingActionButton>
                                 </LinearLayout>
 
                                 <LinearLayout
@@ -426,12 +381,7 @@
                                         android:orientation="horizontal"
                                         android:id="@+id/linear2">
 
-                                        <ListView
-                                            android:id="@+id/InterestsListView"
-                                            android:layout_width="fill_parent"
-                                            android:layout_height="wrap_content"
-                                            android:divider="@color/material_blue_grey_800"
-                                            android:dividerHeight="1dp" />
+
                                         <TextView
                                             android:layout_width="match_parent"
                                             android:layout_height="match_parent"
@@ -530,12 +480,12 @@
 
                                 <Button
                                     android:id="@+id/skill"
-                                    android:layout_width="230dp"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="40dp"
                                     android:background="@drawable/btnshape"
                                     android:drawableRight="@drawable/ic_baseline_arrow_drop_down_24"
                                     android:paddingRight="5dp"
-                                    android:text="Review Customer"
+                                    android:text="Review Vendor"
                                     android:textAlignment="center"
                                     android:textColor="@color/white"
                                     android:textSize="15dp">
@@ -546,7 +496,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1" />
 
-                                <Button
+                                <com.google.android.material.floatingactionbutton.FloatingActionButton
                                     android:id="@+id/addSkills"
                                     android:layout_width="30dp"
                                     android:layout_height="30dp"
@@ -554,7 +504,7 @@
                                     android:background="@drawable/roundbtn"
                                     android:drawableStart="@drawable/ic_baseline_add_24">
 
-                                </Button>
+                                </com.google.android.material.floatingactionbutton.FloatingActionButton>
                             </LinearLayout>
 
                             <LinearLayout

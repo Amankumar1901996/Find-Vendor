@@ -34,7 +34,7 @@ public class CustomerRegister extends AppCompatActivity {
     }
 
     public void vendorRegisteration(View view){
-        Intent intent = new Intent(getApplicationContext(),signIn.class);
+        Intent intent = new Intent(getApplicationContext(), VendorRegistation.class);
         startActivity(intent);
     }
 

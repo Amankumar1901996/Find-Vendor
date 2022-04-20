@@ -5,7 +5,8 @@
     android:layout_height="wrap_content"
     app:cardCornerRadius="10dp"
     app:cardElevation="8dp"
-    android:layout_margin="10dp">
+    android:layout_margin="10dp"
+    android:id="@+id/routelayout">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -32,20 +33,19 @@
             android:layout_marginLeft="5dp"/>
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/locationbtn"
             style="@style/AppTheme.ButtonStyle"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_alignParentLeft="true"
             android:layout_centerInParent="true"
-            android:layout_marginLeft="5dp"
-            />
+            android:layout_marginLeft="5dp" />
 
         <TextView
             android:id="@+id/places"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/button"
+            android:layout_toRightOf="@+id/locationbtn"
             android:layout_marginStart="20dp"
             android:layout_centerVertical="true"
             android:hint="location"
